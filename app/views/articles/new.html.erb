@@ -1,5 +1,5 @@
 <h1>Create and article</h1>
-
+<%= link_to "Goes to articles",articles_path %>
 <% if @article.errors.any? %>
     <ul>
       <% @article.errors.full_messages.each do |msg| %>

@@ -22,11 +22,8 @@ group :development do
 end
 
 group :production do
-<<<<<<< HEAD
-  gem 'pg', '~> 0.18.4'
-=======
+
   gem 'pg'
   gem 'rails_12factor'
->>>>>>> 30965560d8d5dad8ab791a4f6dd318a7e4f9b4dc
 end
 

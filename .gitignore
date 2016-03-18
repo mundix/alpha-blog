@@ -16,5 +16,7 @@
 !/log/.keep
 /tmp
 /.idea/
-.idea/*
+.idea/
+.idea/alpha-blog.iml
 .idea/workspace.xml
+

@@ -37,10 +37,12 @@ class ArticlesController <  ApplicationController
   end
 
   def create
+    debugger
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
     # @article.save
     # redirect_to article_path(@article)
+    @article.user = User.first #hard way
 
     if @article.save
       #do something

@@ -37,7 +37,7 @@ class ArticlesController <  ApplicationController
   end
 
   def create
-    debugger
+    # debugger #esto genera un debug en la consola, y se detiene usando ctrl + d y avanza pulsando n
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
     # @article.save

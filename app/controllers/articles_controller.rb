@@ -45,7 +45,8 @@ class ArticlesController <  ApplicationController
     @article = Article.new(article_params)
     # @article.save
     # redirect_to article_path(@article)
-    @article.user = User.first #hard way
+    # @article.user = User.first #hard way
+    @article.user = current_user #esto es por que se esta requiriendo el suaurio en beforeaction required_user
 
     if @article.save
       #do something

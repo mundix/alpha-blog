@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   # post 'users', to: 'users#create'
 #   Otra forma de hacelro es usando
   resources :users, except: [:new]
+
+  get 'login', to: 'session#new'
+  post 'login', to: 'session#create'
+  delete 'logout', to: 'session#destroy'
+
 end

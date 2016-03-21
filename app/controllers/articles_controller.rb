@@ -2,7 +2,8 @@ class ArticlesController <  ApplicationController
   before_action :set_article, only: [:edit,:update,:show,:destroy]
 
   def index
-    @articles = Article.all
+    # @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   def show
@@ -37,7 +38,7 @@ class ArticlesController <  ApplicationController
   end
 
   def create
-    # debugger #esto genera un debug en la consola, y se detiene usando ctrl + d y avanza pulsando n
+    # debugger #esto genera un debug en la consola, y se detiene usando ctrl + d y avanza pul
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
     # @article.save

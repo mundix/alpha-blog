@@ -15,8 +15,10 @@ class UsersController < ApplicationController
     # debugger
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to the alpha block #{@user.username}"
-      redirect_to articles_path #por ahora lo redirigiremos a la lista de articulos.
+      # redirect_to articles_path #por ahora lo redirigiremos a la lista de articulos.
+      redirect_to user_path(@user)
     else
       render "new"
     end

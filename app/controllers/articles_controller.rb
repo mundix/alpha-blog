@@ -32,7 +32,7 @@ class ArticlesController <  ApplicationController
     # @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      flash["notice"] = "Article was successfully updated"
+      flash[:success] = "Article was successfully updated"
       redirect_to article_path(@article)
     else
       render "edit"
@@ -58,16 +58,16 @@ class ArticlesController <  ApplicationController
   end
 
   private
-    def set_article
-      @article = Article.find(params[:id])
-    end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def article_params
-      params.require(:article).permit(:title, :description)
-    end
+  def article_params
+    params.require(:article).permit(:title, :description)
+  end
 
   def require_same_user
-    if current_user != @article.user
+    if current_user != @article.user and !current_user.admin?
       flash[:danger] = "You can only edit or delete your own article"
       redirect_to root_path
     end

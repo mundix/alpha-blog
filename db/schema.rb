@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 20160321203117) do
     t.integer  "user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

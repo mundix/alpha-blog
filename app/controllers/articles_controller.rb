@@ -1,7 +1,5 @@
 class ArticlesController <  ApplicationController
   before_action :set_article, only: [:edit,:update,:show,:destroy]
-  before_action :require_user, except: [:index, :show]
-  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     # @articles = Article.all
@@ -46,7 +44,7 @@ class ArticlesController <  ApplicationController
     # @article.save
     # redirect_to article_path(@article)
     # @article.user = User.first #hard way
-    @article.user = current_user #esto es por que se esta requiriendo el suaurio en beforeaction required_user
+    # @article.user = current_user #esto es por que se esta requiriendo el suaurio en beforeaction required_user
 
     if @article.save
       #do something
@@ -66,11 +64,6 @@ class ArticlesController <  ApplicationController
     params.require(:article).permit(:title, :description)
   end
 
-  def require_same_user
-    if current_user != @article.user and !current_user.admin?
-      flash[:danger] = "You can only edit or delete your own article"
-      redirect_to root_path
-    end
-  end
+
 
 end
